@@ -1,0 +1,106 @@
+<!-- src/app/app.component.html -->
+<div class="min-h-screen bg-base-200">
+  <!-- Navigation -->
+  <div class="navbar bg-base-100 shadow-lg">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+          </svg>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a routerLink="/">Home</a></li>
+          <li><a>Jobs</a></li>
+          <li><a>Training</a></li>
+          <li><a>Companies</a></li>
+        </ul>
+      </div>
+      <a class="btn btn-ghost normal-case text-xl">RuralJobsHub</a>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a routerLink="/">Home</a></li>
+        <li><a>Jobs</a></li>
+        <li><a>Training</a></li>
+        <li><a>Companies</a></li>
+      </ul>
+    </div>
+    <div class="navbar-end">
+      <a routerLink="/login" class="btn btn-primary mx-2">Login</a>
+      <a routerLink="/register" class="btn btn-outline">Register</a>
+    </div>
+  </div>
+
+  <!-- Router outlet for switching between login/register/etc -->
+  <router-outlet></router-outlet>
+
+  <!-- You can move these below if you only want them on the home route -->
+  <div class="hero min-h-[400px] bg-gradient-to-r from-primary to-secondary">
+    <div class="hero-content text-center text-neutral-content">
+      <div class="max-w-md">
+        <h1 class="mb-5 text-5xl font-bold">Empowering Rural Workforce</h1>
+        <p class="mb-5">Connect with opportunities, learn new skills, and build your future</p>
+        <button class="btn btn-accent">Get Started</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-8">
+    <h2 class="text-3xl font-bold text-center my-8">Trending Skills Training</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <ng-container *ngFor="let skill of trendingSkills">
+        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+          <div class="card-body">
+            <h3 class="card-title">{{ skill.name }}</h3>
+            <p>Demand: <span class="badge badge-success">{{ skill.demand }}</span></p>
+            <p>Duration: {{ skill.duration }}</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary btn-sm">Enroll Now</button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="p-8 bg-base-300">
+    <h2 class="text-3xl font-bold text-center my-8">Available Jobs</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <ng-container *ngFor="let job of availableJobs">
+        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+          <div class="card-body">
+            <h3 class="card-title">{{ job.title }}</h3>
+            <p>Location: {{ job.location }}</p>
+            <p>Salary: {{ job.salary }}</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-secondary btn-sm">Apply Now</button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer p-10 bg-neutral text-neutral-content">
+    <div>
+      <span class="footer-title">Services</span> 
+      <a class="link link-hover">Job Placement</a>
+      <a class="link link-hover">Skill Training</a>
+      <a class="link link-hover">Career Counseling</a>
+    </div> 
+    <div>
+      <span class="footer-title">Company</span> 
+      <a class="link link-hover">About us</a>
+      <a class="link link-hover">Contact</a>
+      <a class="link link-hover">Partners</a>
+    </div> 
+    <div>
+      <span class="footer-title">Legal</span> 
+      <a class="link link-hover">Terms of use</a>
+      <a class="link link-hover">Privacy policy</a>
+      <a class="link link-hover">Cookie policy</a>
+    </div>
+  </footer>
+</div>
